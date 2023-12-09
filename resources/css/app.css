@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500 dark:bg-gray-800 dark:border-gray-700
+    }
+}
+
+@layer components {
+    .nav-btn {
+        @apply block mt-4 lg:inline-block lg:mt-0 px-4 py-2 rounded mr-2
+    }
+
+    .nav-btn:hover {
+        @apply text-white bg-blue-700
+    }
+
+    .text-area {
+        @apply py-3 px-4 block w-full border-gray-200 rounded-lg text-sm dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600
+    }
+
+    .text-area:focus {
+        @apply border-blue-500 ring-blue-500
+    }
+
+    .text-area:disabled {
+        @apply opacity-50 pointer-events-none
+    }
+
+    .del-btn {
+        @apply py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
+    }
+
+    .del-btn:hover {
+        @apply bg-red-600
+    }
+
+    .del-btn:disabled {
+        @apply opacity-50 pointer-events-none
+    }
+
+    .add-btn {
+        @apply
+    }
+
+    .edit-btn {
+        @apply py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600
+    }
+
+    .edit-btn:hover {
+        @apply bg-blue-700
+    }
+
+    .edit-btn:disabled {
+        @apply opacity-50 pointer-events-none
+    }
+}
