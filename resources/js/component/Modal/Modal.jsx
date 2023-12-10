@@ -27,7 +27,8 @@ const Content = ({ action, movie, data }) => {
             formData.append('image', data.image[0]);
         }
 
-        //append and specify _method cause laravel
+        //append and specify _method cause laravel is not happy with axios.put
+        //and had to bypass with post
         if (action.value == 'edit') {
             formData.append('_method', 'PUT');
             axios.post(`/movies/${info[0].movieTitle}`, formData)
@@ -98,9 +99,8 @@ const Content = ({ action, movie, data }) => {
 }
 
 const Modal = () => {
-
     const state = useContext(Context);
-
+    
     function delHandler(e) {
         const title = e.currentTarget.value;
         axios.delete(`/movies/${title}`).then(() => {
@@ -118,7 +118,7 @@ const Modal = () => {
                 <div className="flex flex-col bg-white border shadow-sm rounded-xl dark:bg-gray-800 dark:border-gray-700 dark:shadow-slate-700/[.7]">
                     <div className="flex justify-between items-center py-3 px-4 border-b dark:border-gray-700">
                         <h3 className="font-bold text-gray-800 dark:text-white">
-                            Modal title
+                            {state.action.value}
                         </h3>
                         <button
                             type="button"

@@ -20,10 +20,11 @@ class Admin
         try {
             if (auth()->user()->type == 1) {
                 return $next($request);
+            } else {
+                return redirect('/home');
             }
         } catch (\Throwable $th) {
             abort(403);
         }
-        
     }
 }

@@ -20,6 +20,6 @@ class Reviews extends Model
 
     public function movieTitle()
     {
-        return $this->belongsTo(Movies::class, 'movieTitle');
+        return $this->belongsTo(Movies::class, 'movieTitle', 'movieTitle');
     }
 }

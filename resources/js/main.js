@@ -28,31 +28,22 @@ export function movieReviewState() {
     const movie = signal();
     const reviews = signal();
     const update = signal(true);
+    const alert = signal({ show: false, message:null});
 
     axios.get('/movies').then((response) => {
         data.value = response.data;
     });
-    axios.get('/reviews').then((response) => {
-        reviews.value = response.data;
+
+    effect(() => {
+        if (update.value) {
+            axios.get('/reviews').then((response) => {
+                reviews.value = response.data;
+                update.value = false;
+            });
+        }
     });
 
-    /*     effect(() => {
-            post('loadMovieList').then((res) => {
-                data.value = res;
-                updateMovie.value = false;
-            });
-        })
-    
-        effect(() => {
-            if (update.value) {
-                post('loadUserReviews').then((res) => {
-                    console.log('update');
-                    reviews.value = res;
-                    update.value = false;
-                })
-            }
-        }) */
-    return { data, content, movie, reviews, update }
+    return { data, content, movie, reviews, update, alert}
 }
 
 export const Context = createContext();

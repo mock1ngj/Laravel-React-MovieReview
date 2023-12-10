@@ -10,9 +10,14 @@ class LoginController extends Controller
 {
     public function auth(Request $request)
     {
-        $found = User::where('username', $request->username)
+        $found = User::where('username', $request->username)->first();
+
+        if($request->has('password'))
+        {
+            $found = User::where('username', $request->username)
             ->where('password', $request->password)
             ->first();
+        }
         Auth::login($found);
         if ($found['type'] == 1) {
             return response()->json('/admin');

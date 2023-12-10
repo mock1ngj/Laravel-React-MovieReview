@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movies;
+use App\Models\Reviews;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -77,9 +78,7 @@ class MovieController extends Controller
             $data = array_merge($data, ['image'=> $filePath]);
         }
         $movies = Movies::find($id);
-/*         if (Movies::relations()->exists()) {
-            $movies->movieTitle->update(['movieTitle' => $request->movieTitle]);
-        } */
+        $movies->movieTitle()->update(['movieTitle' => $request->movieTitle]);
         $movies->update($data);
     }
 

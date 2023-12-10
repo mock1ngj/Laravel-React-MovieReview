@@ -3,7 +3,7 @@ import '../css/app.css'
 import Navbar from './component/Navbar'
 import MovieGrid from './component/MovieGrid/MovieGrid'
 import MovieCard from './component/MovieGrid/MovieCard'
-import { LoginContext, Context, movieReviewState } from './main'
+import { Context, movieReviewState } from './main'
 import { signal } from '@preact/signals-react'
 import axios from 'axios'
 import('preline')
@@ -14,6 +14,8 @@ const state = movieReviewState();
 axios.post('/user').then((res) => {
     isLoggedIn.value = res.data;
 });
+
+const showToast = signal(false);
 
 const Home = () => {
     return (
@@ -27,5 +29,5 @@ const Home = () => {
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <Home/>
+    <Home />
 )

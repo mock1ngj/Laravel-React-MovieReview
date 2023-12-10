@@ -23,6 +23,7 @@ class Movies extends Model
     //tells the relation
     public function movieTitle()
     {
-        return $this->hasMany(Reviews::class, 'movieTitle');
+        
+        return $this->hasMany(Reviews::class, 'movieTitle', 'movieTitle');
     }
 }

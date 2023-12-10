@@ -7,7 +7,7 @@ import { FaPlus } from "react-icons/fa6"
 
 const AdminRows = ({ title, desc }) => {
     const state = useContext(Context);
-    
+
     function delHandler(e) {
         batch(() => {
             state.movie.value = e.currentTarget.value;
@@ -83,18 +83,16 @@ const AdminTable = () => {
                             </thead>
                             <tbody>
                                 <AdminTr />
-                                <tr>
-                                    <td>
-                                        <button className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-teal-500 text-white hover:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                            onClick={() => {
-                                                HSOverlay.open('#hs-basic-modal');
-                                            }}>
-                                            <FaPlus />
-                                        </button>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
+                        <div className="flex justify-center mt-4">
+                            <button className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-teal-500 text-white hover:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                onClick={() => {
+                                    HSOverlay.open('#hs-basic-modal');
+                                }}>
+                                <FaPlus />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
