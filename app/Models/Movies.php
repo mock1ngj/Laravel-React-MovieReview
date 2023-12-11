@@ -9,9 +9,7 @@ class Movies extends Model
 {
     use HasFactory;
     protected $table = "movieList";
-    protected $primaryKey = "movieTitle";
-    public $incrementing = false;
-    protected $keyType = 'string';
+    protected $primaryKey = "id";
     public $timestamps = false;
 
     protected $fillable = [
@@ -24,6 +22,6 @@ class Movies extends Model
     public function movieTitle()
     {
         
-        return $this->hasMany(Reviews::class, 'movieTitle', 'movieTitle');
+        return $this->belongsToMany(Reviews::class);
     }
 }

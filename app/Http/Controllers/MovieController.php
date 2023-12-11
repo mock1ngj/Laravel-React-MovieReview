@@ -78,7 +78,6 @@ class MovieController extends Controller
             $data = array_merge($data, ['image'=> $filePath]);
         }
         $movies = Movies::find($id);
-        $movies->movieTitle()->update(['movieTitle' => $request->movieTitle]);
         $movies->update($data);
     }
 

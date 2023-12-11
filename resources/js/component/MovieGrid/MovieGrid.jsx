@@ -9,6 +9,7 @@ const MovieGrid = () => {
             {Array.isArray(movies.value) ?
                 (movies.value.map((movie, i) => (
                     <MovieCard
+                        id={movie.id}
                         title={movie.movieTitle}
                         desc={movie.movieDescription}
                         image={movie.image}

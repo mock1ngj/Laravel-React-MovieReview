@@ -29,7 +29,15 @@ class RatingsController extends Controller
     public function store(Request $request)
     {
         $review = $request->all();
-        Reviews::create($review);
+
+        $review = Reviews::where(['user'=>$request->user, 'movieID' => $request->movieID])->first();
+        if($review == null)
+        {
+            Reviews::create($request->all());
+        }
+        else {
+            return false;
+        }
     }
 
     /**

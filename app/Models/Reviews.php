@@ -13,13 +13,13 @@ class Reviews extends Model
     public $timestamps = false;
     protected $fillable = [
         'user',
-        'movieTitle',
+        'movieID',
         'review',
         'ratings',
     ];
 
     public function movieTitle()
     {
-        return $this->belongsTo(Movies::class, 'movieTitle', 'movieTitle');
+        return $this->belongsTo(Movies::class, 'id', 'movieID');
     }
 }

@@ -23,7 +23,7 @@ const Home = () => {
             <Navbar loggedIn={isLoggedIn} />
             {state.content.value == 'home' ?
                 (<MovieGrid />) :
-                (<MovieCard title={state.movie.value.movieTitle} desc={state.movie.value.movieDescription} loggedIn={isLoggedIn.value} image={state.movie.value.image} />)}
+                (<MovieCard id={state.movie.value.id} title={state.movie.value.movieTitle} desc={state.movie.value.movieDescription} loggedIn={isLoggedIn.value} image={state.movie.value.image} />)}
         </Context.Provider>
     )
 }
